@@ -14,6 +14,8 @@ client = Client(account_sid, auth_token)
 
 print("What do you want to be reminded about?")
 remind_topic = str(input())
+print("How many times do you want to be reminded?")
+number_times = int(input())
 x="Reminding you to stretch, drink water, and "
 complete_remind = x+remind_topic
 
@@ -21,7 +23,7 @@ print("How often do you want to me reminded? (in minutes)")
 local_time = float(input())
 local_time = local_time * 60
 
-for i in range(0,2):
+for i in range(0,number_times):
   time.sleep(local_time)
   message = client.messages \
                 .create(
@@ -30,4 +32,4 @@ for i in range(0,2):
                      to='+15108289878'
                  )
 
-  print(message.sid)
+  #print(message.sid)
